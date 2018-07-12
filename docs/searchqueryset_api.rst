@@ -252,6 +252,12 @@ instead of normal keyword arguments::
     result = sqs[0]
     result.highlighted['other_field'][0] # u'Two computer scientists walk into a bar. The bartender says "<span class="highlighted">Foo</span>!".'
 
+Elasticsearch accepts keyword arguments::
+
+    # Use the ``pre_tag`` and ``post_tag`` keywords and pass the desired tags as lists.
+    sqs = SearchQuerySet().filter(content='foo').highlight(
+        pre_tags=['<strong>'], post_tags=['</strong>'])
+
 ``models``
 ~~~~~~~~~~
 
